@@ -5,6 +5,7 @@ Kalau ada masalah di xampp
     extension=zip
 
 =============
+
 install yang diperlukan sampai dengan bisa membuka admin panel
     composer install
 
@@ -20,4 +21,46 @@ install yang diperlukan sampai dengan bisa membuka admin panel
     Install Filament
     composer require filament/filament
     php artisan filament:install --panels
+
 ==========================================
+
+selanjutnya user
+https://filamentphp.com/docs/3.x/panels/installation
+name : admin
+email : admin@email.com
+password : 123
+
+=========================
+
+Buat halaman baru
+three models and migrations
+    php artisan make:model Owner -m
+    php artisan make:model Patient -m
+    php artisan make:model Treatment -m
+
+Use the following basic schemas for your database migrations:
+copy paste di halaman migration
+
+// create_owners_table
+Schema::create('owners', function (Blueprint $table) {
+    $table->id();
+    $table->string('email');
+    $table->string('name');
+    $table->string('phone');
+    $table->timestamps();
+});
+
+setelah membuat model dan migration serta mengisi kolom tabelnya
+
+selanjutnya melakukan migrate nanti akan dibuatkan 3 tabel sesuai model yang telah kita buat
+
+Unguarding all models
+
+Let’s set up relationships between the models
+antara OWner Patient dan Treatment
+
+php artisan make:filament-resource Patient
+
+muncul halaman patient
+
+========================
