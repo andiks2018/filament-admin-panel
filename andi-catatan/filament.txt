@@ -17,6 +17,8 @@ install yang diperlukan sampai dengan bisa membuka admin panel
     DB_USERNAME=root
     DB_PASSWORD=
 
+    php artisan migrate
+    
     Install Filament
     composer require filament/filament
     php artisan filament:install --panels
