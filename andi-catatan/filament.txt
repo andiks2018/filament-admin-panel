@@ -1,0 +1,23 @@
+=============
+Kalau ada masalah di xampp
+    FILE php.ini , dihilangkan tanda ; didepannya
+    extension=intl
+    extension=zip
+
+=============
+install yang diperlukan sampai dengan bisa membuka admin panel
+    composer install
+
+    APP_KEY=
+
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=f1
+    DB_USERNAME=root
+    DB_PASSWORD=
+
+    Install Filament
+    composer require filament/filament
+    php artisan filament:install --panels
+==========================================
