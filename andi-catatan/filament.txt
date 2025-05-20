@@ -99,3 +99,6 @@ Search able dan filter searchable
                     ->searchable(),
 
 ===========================
+
+Menghubungkan realtion antara treatment denganpatientResource
+
