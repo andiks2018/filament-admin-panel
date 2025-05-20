@@ -99,3 +99,10 @@ Search able dan filter searchable
                     ->searchable(),
 
 ===========================
+
+ada kesalahan di branch ketika memunculkan description hewan
+jadi langsung ke branch 4 kita mulai ulang
+
+php artisan make:filament-relation-manager PatientResource treatments description
+
+
