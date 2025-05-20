@@ -2,16 +2,19 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PatientResource\Pages;
-use App\Filament\Resources\PatientResource\RelationManagers;
-use App\Models\Patient;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Patient;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\DatePicker;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\PatientResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\PatientResource\RelationManagers;
 
 class PatientResource extends Resource
 {
@@ -23,7 +26,40 @@ class PatientResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('name')
+                    ->required(),
+                DatePicker::make('date_of_birth')
+                    ->maxDate(now())
+                    ->required(),
+
+                Select::make('type')
+                    ->options([
+                    'cat' => 'Cat',
+                    'dog' => 'Dog',
+                    'rabbit' => 'Rabbit',
+                    ])
+                    ->required(),
+                // ini membuat halaman baru
+                Select::make('owner_id')
+                ->relationship('owner', 'name')
+                ->required()
+                ->preload()
+                ->searchable()
+                ->createOptionForm([
+                    TextInput::make('name')
+                        ->required()
+                        ->maxLength(255),
+                    TextInput::make('email')
+                        ->label('Email address')
+                        ->email()
+                        ->required()
+                        ->maxLength(255),
+                    TextInput::make('phone')
+                        ->label('Phone number')
+                        ->tel()
+                        ->required(),
+                ])
+                ->required(),
             ]);
     }
 

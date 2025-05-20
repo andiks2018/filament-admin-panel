@@ -22,6 +22,11 @@ install yang diperlukan sampai dengan bisa membuka admin panel
     composer require filament/filament
     php artisan filament:install --panels
 
+    Ketika menghidupkan kembali aplikasinya
+    menjalankan composer install lagi
+    kemudia refresh server xampp lagi
+
+
 ==========================================
 
 selanjutnya user
@@ -64,3 +69,14 @@ php artisan make:filament-resource Patient
 muncul halaman patient
 
 ========================
+Mebuat halaman baru
+
+import function semuanya satu satu di halaman patientresource
+halaman owner halaman patient dan halaman treament
+
+kita buat form
+kita buat relasi antara owner dengan hewan peliharaannya
+
+selanjutnya menampilkan di table
+========================
+
