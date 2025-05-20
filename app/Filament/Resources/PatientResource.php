@@ -9,8 +9,10 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\PatientResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -67,10 +69,24 @@ class PatientResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name')
+                    ->searchable(),
+                TextColumn::make('type'),
+                TextColumn::make('owner.name')
+                    ->searchable(),
+                TextColumn::make('date_of_birth')
+                    ->dateTime('M d, Y')
+                    ->sortable(),
             ])
             ->filters([
-                //
+                SelectFilter::make('type')
+                ->options([
+                    'cat' => 'Cat',
+                    'dog' => 'Dog',
+                    'rabbit' => 'Rabbit',
+                ]),
+                SelectFilter::make('owner')
+                ->relationship('owner', 'name'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

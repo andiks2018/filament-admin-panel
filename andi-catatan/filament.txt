@@ -75,8 +75,27 @@ import function semuanya satu satu di halaman patientresource
 halaman owner halaman patient dan halaman treament
 
 kita buat form
+
 kita buat relasi antara owner dengan hewan peliharaannya
+        return $form
+            ->schema([
+                TextInput::make('name')
+                    ->required(),
 
 selanjutnya menampilkan di table
+
 ========================
 
+Mengisi kolom tabel secara otomatis di patient resourch
+        return $table
+            ->columns([
+                TextColumn::make('name'),
+
+Search able dan filter searchable
+            ->filters([
+                SelectFilter::make('type')
+
+ TextColumn::make('name')
+                    ->searchable(),
+
+===========================
