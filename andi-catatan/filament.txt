@@ -114,3 +114,9 @@ ini membuat semua tabel dan form yang dibutuhkan secara otomatis berdasarkan inf
 kayaknya cukup sampai disini kita coba push di branch selanjutnya
 
 ===========================
+
+ada masalah sama git branch nya karena tidak bisa ditambah branch yang baru
+jadinya kita tambhkan ke branch 4
+
+===========================
+
