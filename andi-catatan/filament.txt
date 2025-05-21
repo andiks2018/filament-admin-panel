@@ -105,4 +105,12 @@ jadi langsung ke branch 4 kita mulai ulang
 
 php artisan make:filament-relation-manager PatientResource treatments description
 
+===========================
+selanjutnya kita buat halaman owner
 
+php artisan make:filament-resource Owner --generate
+ini membuat semua tabel dan form yang dibutuhkan secara otomatis berdasarkan informasi tabel yang kita punya
+
+kayaknya cukup sampai disini kita coba push di branch selanjutnya
+
+===========================
