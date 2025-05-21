@@ -120,3 +120,8 @@ jadinya kita tambhkan ke branch 4
 
 ===========================
 
+selanjutnya kita tambahkan widget
+php artisan make:filament-widget TreatmentsChart --chart
+
+dan menambahkan bar grafik
+composer require flowframe/laravel-trend
